@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/">Home</a>
+              <a class="nav-link" class="btn btn-secondary" aria-current="page" href="/">Home</a>
             </li>
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0">
@@ -31,8 +31,8 @@
               <li class="nav-item">Logged in as: <%= @current_user.username %></li>
               <li class="nav-item"><%= button_to "Logout", "/sessions/logout", method: :delete, class: "nav-link" %></li>
             <% else %>
-              <li class="nav-item"><a href="/sessions/new" class="nav-link">Login</a></li>
-              <li class="nav-item"><a href="/users/new" class="nav-link">Sign Up</a></li>
+              <li class="nav-item"><a href="/sessions/new" class="btn btn-secondary" >Login</a></li>
+              <li class="nav-item"><a href="/users/new" class="btn btn-secondary" >Sign Up</a></li>
             <% end %>
           </div>
         </div>
