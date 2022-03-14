@@ -2,10 +2,14 @@
 
 <ul class="pt-4">
   <% for place in @places %>
-    <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>
+    <p><a href="/places/<%= place.id %>"><%= place.name %></a></p>
   <% end %>
 </ul>
 
-<p>
-  <a class="btn btn-primary" href="/places/new">New Place</a>
-</p>
+<% if @current_user %>
+  <p>
+    <a class="btn btn-primary" href="/places/new">New Place</a>
+  </p>
+<% else %>
+  To Create A Place: <a class="btn btn-primary" href="/sessions/new">Login Here</a>.
+<% end %>

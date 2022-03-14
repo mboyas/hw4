@@ -1,18 +1,18 @@
 <h1 class="pt-2"><%= @place.name %></h1>
 
-<h3 class="pt-4">My Posts</h2>
+<h3 class="pt-4">Posts</h2>
 
 <div class="row pt-4">
   <% for post in @place.posts.where({ user_id: session[:user_id] }) %>
     <div class="col-md-4 col-sm-12 pb-2">
       <h3><%= post.title %></h3>
       <h4><%= post.posted_on %></h4>
-      <p><%= post.description %></p>
       <% if post.uploaded_image.attached? %>
         <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
       <% else %>
         <p>No Image Uploaded</p>
       <% end %>
+      <p><%= post.description %></p>
     </div>
   <% end %>
 </div>
