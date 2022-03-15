@@ -1,11 +1,15 @@
 <h1 class="pt-2 pb-4">New Place</h1>
 
-<%= form_with model: @place do |form| %>
-  <p>
-    <%= form.label "name" %>
-    <%= form.text_field "name" %>
-  </p>
-  <p>
-    <%= form.submit "Save Place To List", class:"btn btn-primary"  %>
-  </p>
+<% if @current_user %>
+  <%= form_with model: @place do |form| %>
+    <p>
+      <%= form.label "name" %>
+      <%= form.text_field "name" %>
+    </p>
+    <p>
+      <%= form.submit "Save Place To List", class:"btn btn-primary"  %>
+    </p>
+  <% end %>
+<% else %>
+  To Create A Place: <a class="btn btn-primary" href="/sessions/new">Login Here</a>
 <% end %>

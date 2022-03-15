@@ -1,15 +1,16 @@
 <h1 class="pt-2">List of Places</h1>
 
-<ul class="pt-4">
+<% if @current_user %>
+  <p>
+    <a class="btn btn-primary mt-3" href="/places/new">New Place</a>
+  </p>
+<% else %>
+  To Create A Place: <a class="btn btn-primary" href="/sessions/new">Login Here</a>
+<% end %>
+
+<ul class="pt-2">
   <% for place in @places %>
     <p><a href="/places/<%= place.id %>"><%= place.name %></a></p>
   <% end %>
 </ul>
 
-<% if @current_user %>
-  <p>
-    <a class="btn btn-primary" href="/places/new">New Place</a>
-  </p>
-<% else %>
-  To Create A Place: <a class="btn btn-primary" href="/sessions/new">Login Here</a>
-<% end %>

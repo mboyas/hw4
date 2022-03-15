@@ -1,6 +1,10 @@
 <h1 class="pt-2"><%= @place.name %></h1>
 
-<h3 class="pt-4">Posts</h2>
+<h3 class="pt-1">Posts</h2>
+
+<p>
+  <a class="btn btn-primary mt-3" href="/posts/new?place_id=<%= @place.id %>">New Post</a>
+</p>
 
 <div class="row pt-4">
   <% for post in @place.posts.where({ user_id: session[:user_id] }) %>
@@ -16,10 +20,6 @@
     </div>
   <% end %>
 </div>
-
-<p>
-  <a class="btn btn-primary" href="/posts/new?place_id=<%= @place.id %>">New Post</a>
-</p>
 
 <p>
   <a class="btn btn-danger" href="/places">Back to All Places</a>
